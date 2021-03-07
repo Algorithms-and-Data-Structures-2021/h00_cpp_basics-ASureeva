@@ -11,21 +11,21 @@ using std::copy;
 
 // Задание 1
 void swap_args(int *lhs, int *rhs) {
-    if(*a and *b){
-        int c = *a;
-        *a = *b;
-        *b = c;
+    if(*lhs and *rhs){
+        int c = *lhs;
+        *lhs = *rhs;
+        *rhs = c;
     }
 }
 
 // Задание 2
 int **allocate_2d_array(int num_rows, int num_cols, int init_value) {
-    if ((rows > 0) && (cols > 0)) {
-        int **array = new int *[rows];
-        for (int i = 0; i < rows; i++) {
-            array[i] = new int[cols];
-            for (int j = 0; j < cols; j++)
-                array[i][j] = value;
+    if ((num_rows > 0) && (num_cols > 0)) {
+        int **array = new int *[num_rows];
+        for (int i = 0; i < num_rows; i++) {
+            array[i] = new int[num_cols];
+            for (int j = 0; j < num_cols; j++)
+                array[i][j] = init_value;
         }
         return array;
     }
@@ -36,10 +36,10 @@ int **allocate_2d_array(int num_rows, int num_cols, int init_value) {
 
 // Задание 3
 bool copy_2d_array(int **arr_2d_source, int **arr_2d_target, int num_rows, int num_cols) {
-    if ((arr != nullptr) && (matrix != nullptr) && (rows > 0) && (cols > 0)) {
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                matrix[i][j] = arr[i][j];
+    if ((rr_2d_source != nullptr) && (arr_2d_target != nullptr) && (num_rows > 0) && (num_cols > 0)) {
+        for (int i = 0; i < num_rows; i++) {
+            for (int j = 0; j < num_cols; j++) {
+                arr_2d_target[i][j] = rr_2d_source[i][j];
             }
         }
         return true;
@@ -60,11 +60,11 @@ void reverse_1d_array(vector<int> &arr) {
 
 // Задание 5
 void reverse_1d_array(int *arr_begin, int *arr_end) {
-    if ((left != nullptr) && (right != nullptr)) {
-        if (right < left)
+    if ((arr_begin != nullptr) && (arr_end != nullptr)) {
+        if (arr_end < arr_begin)
             return;
-        swap(*left, *right);
-        reverse_1d_array(left + 1, right - 1);
+        swap(*arr_begin, *arr_end);
+        reverse_1d_array(arr_begin + 1, arr_end - 1);
     }
 }
 
@@ -99,10 +99,10 @@ vector<int> find_odd_numbers(vector<int> &arr) {
 // Задание 8
 vector<int> find_common_elements(vector<int> &arr_a, vector<int> &arr_b) {
     vector<int> common_elements;
-    for (int i = 0; i < arr1.size(); i++) {
-        for (int j = 0; j < arr2.size(); j++) {
-            if (arr1[i] == arr2[j]) {
-                common_elements.push_back(arr1[i]);
+    for (int i = 0; i < arr_a.size(); i++) {
+        for (int j = 0; j < arr_b.size(); j++) {
+            if (arr_a[i] == arr_b[j]) {
+                common_elements.push_back(arr_a[i]);
             }
         }
     }
