@@ -11,7 +11,7 @@ using std::copy;
 
 // Задание 1
 void swap_args(int *lhs, int *rhs) {
-    if(*lhs and *rhs){
+    if((lhs != nullptr) && (rhs != nullptr)){
         int c = *lhs;
         *lhs = *rhs;
         *rhs = c;
@@ -36,10 +36,10 @@ int **allocate_2d_array(int num_rows, int num_cols, int init_value) {
 
 // Задание 3
 bool copy_2d_array(int **arr_2d_source, int **arr_2d_target, int num_rows, int num_cols) {
-    if ((rr_2d_source != nullptr) && (arr_2d_target != nullptr) && (num_rows > 0) && (num_cols > 0)) {
+    if ((arr_2d_source != nullptr) && (arr_2d_target != nullptr) && (num_rows > 0) && (num_cols > 0)) {
         for (int i = 0; i < num_rows; i++) {
             for (int j = 0; j < num_cols; j++) {
-                arr_2d_target[i][j] = rr_2d_source[i][j];
+                arr_2d_target[i][j] = arr_2d_source[i][j];
             }
         }
         return true;
@@ -52,8 +52,8 @@ bool copy_2d_array(int **arr_2d_source, int **arr_2d_target, int num_rows, int n
 // Задание 4
 void reverse_1d_array(vector<int> &arr) {
     if (!arr.empty()){
-        for (int i = 0; i < arr.size()/2; i++) {
-            swap(arr[i], arr[arr.size()]);
+        for (int i = 0; i < (arr.size())/2; i++) {
+            std::swap(arr[i], arr[(arr.size() - i - 1)]);
         }
     }
 }
@@ -63,7 +63,7 @@ void reverse_1d_array(int *arr_begin, int *arr_end) {
     if ((arr_begin != nullptr) && (arr_end != nullptr)) {
         if (arr_end < arr_begin)
             return;
-        swap(*arr_begin, *arr_end);
+        std::swap(*arr_begin, *arr_end);
         reverse_1d_array(arr_begin + 1, arr_end - 1);
     }
 }
